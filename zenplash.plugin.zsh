@@ -9,9 +9,7 @@ else
     typeset -g _zpm_template__base_dir="${0:h}/templates"
 fi
 
-if [[ $PMSPEC != *f* ]] {
-  fpath+=( "${0:h}/functions" )
-}
+fpath+=( "${0:h}/functions" )
 
 autoload -Uz zenplash
 
