@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+
+emulate -L zsh
+setopt +o nomatch
+
+if [[ "$#" -lt 1 ]]; then
+  echo "Usage: template template args"
+  return 1
+fi
+
+local template_folder="$(echo ${_zpm_template__base_dir}/${1}*)"
+
+shift
+
+if [[ -z $@ ]]; then
+    echo "Copy Into this directory?(Y/n)"
+    read choice
+    if [[ $choice == "y" || $choice == "Y" ]]; then
+        cp -r ${template_folder}/* .
+    fi
+else
+    _zen_destination=$@
+    cp -r ${template_folder} ${_zen_destination}
+fi
+
+
+echo "${c[cyan]}Done"
+
