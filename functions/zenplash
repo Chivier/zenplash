@@ -17,6 +17,7 @@ if [[ -z $@ ]]; then
     read choice
     if [[ $choice == "y" || $choice == "Y" ]]; then
         cp -r ${template_folder}/* .
+        cp -r ${template_folder}/.* .
     fi
 else
     _zen_destination=$@
