@@ -21,7 +21,7 @@ if [[ -z $@ ]]; then
     fi
 else
     _zen_destination=$@
-    cp -r ${template_folder} ${_zen_destination}
+    cp -rp ${template_folder} ${_zen_destination}
 fi
 
 
